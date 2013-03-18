@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for modulator
-Mon Mar 18 12:18:59 2013
+Mon Mar 18 12:31:09 2013
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
 
 
@@ -472,7 +472,20 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Mar 18 12:18:58 2013
+    Info: Copyright (C) 1991-2012 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Mar 18 12:31:08 2013
 Info: Command: quartus_sta iq_modulator -c modulator
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -523,8 +536,8 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 281 megabytes
-    Info: Processing ended: Mon Mar 18 12:18:59 2013
+    Info: Peak virtual memory: 276 megabytes
+    Info: Processing ended: Mon Mar 18 12:31:09 2013
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

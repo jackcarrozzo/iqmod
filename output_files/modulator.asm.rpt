@@ -1,5 +1,5 @@
 Assembler report for modulator
-Mon Mar 18 12:18:57 2013
+Mon Mar 18 12:30:58 2013
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Mar 18 12:18:57 2013 ;
+; Assembler Status      ; Successful - Mon Mar 18 12:30:58 2013 ;
 ; Revision Name         ; modulator                             ;
 ; Top-level Entity Name ; modulator                             ;
 ; Family                ; Cyclone II                            ;
@@ -117,14 +117,27 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Mar 18 12:18:55 2013
+    Info: Copyright (C) 1991-2012 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Mar 18 12:30:57 2013
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off iq_modulator -c modulator
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 319 megabytes
-    Info: Processing ended: Mon Mar 18 12:18:57 2013
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 313 megabytes
+    Info: Processing ended: Mon Mar 18 12:30:58 2013
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

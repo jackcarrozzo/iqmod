@@ -1,5 +1,5 @@
 Fitter report for modulator
-Mon Mar 18 12:18:53 2013
+Mon Mar 18 12:30:55 2013
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                     ;
 +------------------------------------+-----------------------------------------------+
-; Fitter Status                      ; Successful - Mon Mar 18 12:18:53 2013         ;
+; Fitter Status                      ; Successful - Mon Mar 18 12:30:55 2013         ;
 ; Quartus II 32-bit Version          ; 12.1 Build 243 01/31/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; modulator                                     ;
 ; Top-level Entity Name              ; modulator                                     ;
@@ -836,7 +836,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Fitter
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Mar 18 12:18:48 2013
+    Info: Copyright (C) 1991-2012 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Mar 18 12:30:53 2013
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off iq_modulator -c modulator
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (119006): Selected device EP2C8Q208C8 for design "modulator"
@@ -864,7 +877,7 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -897,9 +910,9 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file /home/jackc/Projects/iqmod/output_files/modulator.fit.smsg
 Info: Quartus II 32-bit Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 380 megabytes
-    Info: Processing ended: Mon Mar 18 12:18:53 2013
-    Info: Elapsed time: 00:00:05
+    Info: Peak virtual memory: 369 megabytes
+    Info: Processing ended: Mon Mar 18 12:30:55 2013
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:03
 
 
