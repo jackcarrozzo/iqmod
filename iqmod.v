@@ -39,6 +39,7 @@ always @(negedge clk) // calculate and set at falling edge (dac latches on posed
 			inphase =i*cos[7:1];
 			outphase=q*sin[7:1];
 
+			// TODO: after fixing lut_gen for ints, fix this math
 			dacval=512+inphase[15:6]-outphase[15:6];
 			tpos=tpos+`POSPERCLK;
 		end
