@@ -30,8 +30,6 @@ initial begin
 	// really we don't care about startup values, but setting these makes the
 	// debugging happy
 	dacval=0;
-	inphase=0;
-	outphase=0;
 	tpos=0;
 end
 

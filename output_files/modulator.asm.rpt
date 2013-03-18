@@ -1,5 +1,5 @@
 Assembler report for modulator
-Sat Mar 16 14:24:14 2013
+Mon Mar 18 12:18:57 2013
 Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,8 +10,8 @@ Quartus II 32-bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Editio
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Documents and Settings/Jack/My Documents/Quartus/output_files/modulator.sof
-  6. Assembler Device Options: C:/Documents and Settings/Jack/My Documents/Quartus/output_files/modulator.pof
+  5. Assembler Device Options: modulator.sof
+  6. Assembler Device Options: modulator.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Mar 16 14:24:14 2013 ;
+; Assembler Status      ; Successful - Mon Mar 18 12:18:57 2013 ;
 ; Revision Name         ; modulator                             ;
 ; Top-level Entity Name ; modulator                             ;
 ; Family                ; Cyclone II                            ;
@@ -78,37 +78,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+--------------------------------------------------------------------------------+
-; Assembler Generated Files                                                      ;
-+--------------------------------------------------------------------------------+
-; File Name                                                                      ;
-+--------------------------------------------------------------------------------+
-; C:/Documents and Settings/Jack/My Documents/Quartus/output_files/modulator.sof ;
-; C:/Documents and Settings/Jack/My Documents/Quartus/output_files/modulator.pof ;
-+--------------------------------------------------------------------------------+
++---------------------------+
+; Assembler Generated Files ;
++---------------------------+
+; File Name                 ;
++---------------------------+
+; modulator.sof             ;
+; modulator.pof             ;
++---------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Documents and Settings/Jack/My Documents/Quartus/output_files/modulator.sof ;
-+----------------+-----------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                 ;
-+----------------+-----------------------------------------------------------------------------------------+
-; Device         ; EP2C8Q208C8                                                                             ;
-; JTAG usercode  ; 0xFFFFFFFF                                                                              ;
-; Checksum       ; 0x000C53FB                                                                              ;
-+----------------+-----------------------------------------------------------------------------------------+
++-----------------------------------------+
+; Assembler Device Options: modulator.sof ;
++----------------+------------------------+
+; Option         ; Setting                ;
++----------------+------------------------+
+; Device         ; EP2C8Q208C8            ;
+; JTAG usercode  ; 0xFFFFFFFF             ;
+; Checksum       ; 0x000C53FB             ;
++----------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Documents and Settings/Jack/My Documents/Quartus/output_files/modulator.pof ;
-+--------------------+-------------------------------------------------------------------------------------+
-; Option             ; Setting                                                                             ;
-+--------------------+-------------------------------------------------------------------------------------+
-; Device             ; EPCS4                                                                               ;
-; JTAG usercode      ; 0x00000000                                                                          ;
-; Checksum           ; 0x06F0B2C0                                                                          ;
-; Compression Ratio  ; 3                                                                                   ;
-+--------------------+-------------------------------------------------------------------------------------+
++-----------------------------------------+
+; Assembler Device Options: modulator.pof ;
++--------------------+--------------------+
+; Option             ; Setting            ;
++--------------------+--------------------+
+; Device             ; EPCS4              ;
+; JTAG usercode      ; 0x00000000         ;
+; Checksum           ; 0x06F0B2C0         ;
+; Compression Ratio  ; 3                  ;
++--------------------+--------------------+
 
 
 +--------------------+
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Mar 16 14:24:12 2013
+    Info: Processing started: Mon Mar 18 12:18:55 2013
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off iq_modulator -c modulator
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 297 megabytes
-    Info: Processing ended: Sat Mar 16 14:24:14 2013
+    Info: Peak virtual memory: 319 megabytes
+    Info: Processing ended: Mon Mar 18 12:18:57 2013
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
