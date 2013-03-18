@@ -1,4 +1,7 @@
 iqmod
 =====
 
-Verilog IQ modulation and local osc synthesis
+Verilog IQ modulation and local oscilator synthesis
+
+TODO: write this
+
