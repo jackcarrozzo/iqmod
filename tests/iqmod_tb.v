@@ -7,8 +7,8 @@ module iqmod_tb;
 		reset = 0;
 		clock = 1;
 		
-		in_i = 8'hff;
-		in_q = 8'hff;
+		in_i = 127;
+		in_q = -127;
 
 		#10 reset = 1;
 		#400 $finish;
@@ -18,8 +18,8 @@ module iqmod_tb;
 	always #1 clock = !clock;
 	
 
-	reg [7:0] in_i;
-	reg [7:0] in_q;
+	reg signed [7:0] in_i;
+	reg signed [7:0] in_q;
 	wire [9:0] out_dac;
 
 	iqmod myiqmod (out_dac,in_i,in_q,clock,reset);

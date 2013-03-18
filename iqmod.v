@@ -12,15 +12,14 @@ module iqmod (
 
 output [9:0] dacval;
 
-input [7:0]  i;
-input [7:0]  q;
-input		 clk;
-input        reset_;
+input signed [7:0]  i;
+input signed [7:0]  q;
+input		        clk;
+input               reset_;
 
 reg [9:0]    dacval;
-reg [7:0]    tpos = 8'h00;
-reg [15:0]   inphase;
-reg [15:0]   outphase;
+reg signed [15:0] dacfull;
+reg [7:0]    tpos=0;
 
 wire[7:0]    sin;
 wire[7:0]    cos;
@@ -28,7 +27,12 @@ wire[7:0]    cos;
 sincos the_sincos (sin,cos,tpos,tpos);
 
 initial begin
-	dacval=8'h00;
+	// really we don't care about startup values, but setting these makes the
+	// debugging happy
+	dacval=0;
+	inphase=0;
+	outphase=0;
+	tpos=0;
 end
 
 always @(negedge clk) // calculate and set at falling edge (dac latches on posedge)
@@ -36,11 +40,11 @@ always @(negedge clk) // calculate and set at falling edge (dac latches on posed
 	
 	if (reset_) // run
 		begin
-			inphase =i*cos[7:1];
-			outphase=q*sin[7:1];
+			// sin and cos go from 0 to 255 for simplicited, so we need to make them signed
+			dacfull=(i*(cos-128))-(q*(sin-128));
 
-			// TODO: after fixing lut_gen for ints, fix this math
-			dacval=512+inphase[15:6]-outphase[15:6];
+			// scale to output range and make positive
+			dacval=(dacfull/64)+512;
 			tpos=tpos+`POSPERCLK;
 		end
 	else
