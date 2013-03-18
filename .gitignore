@@ -4,3 +4,11 @@
 
 db/*
 incremental_db/*
+
+*.rdb
+*.sof
+*.cdb
+*.hdb
+*.rdb
+*.bpm
+
