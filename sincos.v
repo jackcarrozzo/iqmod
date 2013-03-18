@@ -16,6 +16,8 @@ reg [7:0] cos_lut [0:255];
 reg [7:0] sin;
 reg [7:0] cos;
 
+// generated with lut_gen.pl
+// TODO: need to regen this as ints
 initial begin
 	sin_lut[000] = 8'h7F;
 	cos_lut[000] = 8'hFF;
