@@ -1,8 +1,8 @@
 PROJ=iq_modulator
 TOPBLOCK=modulator
 #QUBIN=/usr/local/altera/12.1sp1/quartus/bin
-QUBIN=/usr/local/altera/12.1sp1_x64/quartus/linux64
-ALTERALIBS=/usr/local/altera/12.1sp1_x64/quartus/linux64
+QUBIN=/usr/local/altera/12.1sp1_243/quartus/linux64
+ALTERALIBS=/usr/local/altera/12.1sp1_243/quartus/linux64
 
 all: synth fit assemble netlist
 
