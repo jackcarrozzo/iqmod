@@ -26,3 +26,7 @@ prog:
 
 jtagconfig:
 	LD_LIBRARY_PATH=$(ALTERALIBS) $(QUBIN)/jtagconfig
+
+clean:
+	rm -fr db incremental_db output_files greybox_tmp simulation
+
