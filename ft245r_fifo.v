@@ -41,7 +41,9 @@ always @(negedge clk) begin
 
 	if counter==`CLKSPERSYM begin
 		counter=0;
-			
+
+		// http://www.mouser.com/ds/2/163/DS_FT245R-19492.pdf
+		// pg 13			
 		case (state)
 			0: begin // start. if !rxf, clear rd_
 				if (0==rxf_) begin

@@ -3,23 +3,25 @@ module sincos_tb;
 	initial begin
 		$dumpvars;
 
-		clock = 1;
+		clock=1;
 		#300 $finish;
 
-		in_sin=8'h00;
-		in_cos=8'h00;
+		//t=0;
+		//i=15;
+		//q=8;
 	end
 
-	reg clock = 0;
-	always #10 clock = !clock;
-	always #1 in_sin=in_sin+1;
-	always #1 in_cos=in_cos+1;
+	reg clock;
+	reg [4:0] t=0;
+	reg [3:0] i=15;
+	reg [3:0] q=8;
 
-	reg [7:0] in_sin = 8'h00;
-	reg [7:0] in_cos = 8'h00;
-	wire [7:0] out_sin;
-	wire [7:0] out_cos;
+	always #1 clock = !clock;
+	always #1 t=t+1;
 
-	sincos my_sc (out_sin,out_cos,in_sin,in_cos);
+	wire [8:0] icos;
+	wire [8:0] qsin;
+
+	sincos sc0(icos,qsin,t,i,q);
 
 endmodule

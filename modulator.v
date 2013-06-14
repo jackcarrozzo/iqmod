@@ -1,10 +1,9 @@
 module modulator (
 	dacval, // out: the value written to the dac
-	loclk,  // out: local osc
+	loclk,  // out: local osc for mixer
 	synthclk, // out: clk to the dac
 	locked, //out
-	clk,    // in
-   reset_  // in: active low
+	clk    // in
 );
 
 output [9:0] dacval;
@@ -13,19 +12,20 @@ output loclk;
 output locked;
 
 input		 clk;
-input     reset_;
 
-reg [7:0]    i;
-reg [7:0]    q;
-reg			 pllena;
-reg          areset;
+reg [3:0]   i;
+reg [3:0]   q;
 
-iqmod myiq(dacval,i,q,runclk,reset_);
-thepll mypll(areset,clk,pllena,synthclk,loclk,locked);
+reg					pllena;
+reg      		areset;
+
+iqmod iq0(dacval,i,q,synthclk);
+thepll pll0(areset,clk,pllena,synthclk,loclk,locked);
 
 initial begin
-	i=127;
+	i=15;
 	q=0;
+
 	pllena=1;
 	areset=0;
 end
