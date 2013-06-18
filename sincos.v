@@ -16,16 +16,11 @@ input [3:0] q;
 reg signed [8:0] icos_lut [0:511];
 reg signed [8:0] qsin_lut [0:511];
 
-//reg [8:0] icos_addr=0;
-//reg [8:0] qsin_addr=0;
-//wire [8:0] icos=icos_lut[icos_addr];
-//wire [8:0] qsin=qsin_lut[qsin_addr];
-
-assign icos=icos_lut[{i,t}];
-assign qsin=qsin_lut({q,t}];
-
 // address [8:5] is the multiplier, 0:-1, (7,8)=~0, 15=1
 // address [4:0] is t
+
+assign icos=icos_lut[(i<<5)+t];
+assign qsin=qsin_lut[(q<<5)+t];
 
 // generated with iq_lut.pl
 initial begin
@@ -1054,11 +1049,5 @@ initial begin
 	qsin_lut[511] = -9'sd50;
 	icos_lut[511] =  9'sd250;
 end
-
-/*always @(t,i,q)
-	begin
-		icos_addr=(i<<5)+t;
-		qsin_addr=(q<<5)+t;
-	end*/
 
 endmodule
