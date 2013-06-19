@@ -5,16 +5,12 @@ module sincos_tb;
 
 		clock=1;
 		#300 $finish;
-
-		//t=0;
-		//i=15;
-		//q=8;
 	end
 
 	reg clock;
 	reg [4:0] t=0;
-	reg [3:0] i=15;
-	reg [3:0] q=8;
+	reg [7:0] i=255;
+	reg [7:0] q=64;
 
 	always #1 clock = !clock;
 	always #1 t=t+1;

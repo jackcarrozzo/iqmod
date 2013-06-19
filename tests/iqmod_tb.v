@@ -1,3 +1,5 @@
+`define IQMSB 7
+
 module iqmod_tb;
 
 	reg reset = 0;
@@ -7,7 +9,7 @@ module iqmod_tb;
 		clock = 1;
 		
 		in_i = 0;
-		in_q = 7;
+		in_q = 127;
 
 		#400 $finish;
 	end
@@ -15,8 +17,8 @@ module iqmod_tb;
 	reg clock = 0;
 	always #1 clock = !clock;
 	
-	reg  [3:0] in_i;
-	reg  [3:0] in_q;
+	reg  [7:0] in_i;
+	reg  [7:0] in_q;
 	wire [9:0] out_dac;
 
 
