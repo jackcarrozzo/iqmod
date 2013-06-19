@@ -11,7 +11,7 @@ show:
 	gtkwave dump.vcd 2>&1 >/dev/null &
 
 clean:
-	rm -fr iqmod_bin dump.vcd
+	rm -fr iqmod_bin sc_bin dump.vcd
 
 buildsc:
 	iverilog -o sc_bin sincos_tb.v ../sincos.v
