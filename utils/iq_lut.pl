@@ -12,12 +12,15 @@ print "initial begin\n";
 # from 0 to 2*pi
 # output on [-256,255] (9 bits, so they add to the 10-bit DAC value)
 my ($sval,$sneg,$cval,$cneg);
-for ($i=0;$i<16;$i++) {
+for ($i=0;$i<256;$i++) {
 	for ($t=0;$t<$numT;$t++) {
-		$mult=$i-7.5; # center on 0
+		$mult=$i-127.5; # center on 0
 
-		$sval=255*($mult/7.5)*sin(2*$pi*$t/$numT);
-		$cval=255*($mult/7.5)*cos(2*$pi*$t/$numT);
+		# 255 scales the output magnitude
+		# ($mult/127.5) centers the multiplier on 0
+		# sin/cos output is -1 to 1
+		$sval=255*($mult/127.5)*sin(2*$pi*$t/$numT);
+		$cval=255*($mult/127.5)*cos(2*$pi*$t/$numT);
 
 		#print "i: $i, t: $t, sin $sval\n";
 
