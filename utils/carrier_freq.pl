@@ -19,10 +19,10 @@ while (<F>) {
 	my $line=$_;
 
 	if ($line=~/altpll_component.clk0_divide_by = ([0-9]+),/) {
-		print "PLL divide by:\t $1\n";
+		print "PLL divide:\t $1\n";
 		$pll_div=$1;
 	} elsif ($line=~/altpll_component.clk0_multiply_by = ([0-9]+),/) {
-		print "PLL multiply by:\t $1\n";
+		print "PLL multiply:\t $1\n";
 		$pll_mult=$1;
 	}
 
@@ -40,6 +40,8 @@ while (<F>) {
 	if ($line=~/define POSPERCLK ([0-9]+)'d2/) {
 		print "Pos per clock:\t $1\n";
 		$posperclk=$1;
+		$posperclk--;
+		
 		last;
 	}
 }
