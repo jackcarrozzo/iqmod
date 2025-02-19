@@ -1,0 +1,131 @@
+
+#set_global_assignment -name FAMILY "Cyclone II"
+#set_global_assignment -name DEVICE EP2C8Q208C8
+#set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE15F23C8
+
+set_global_assignment -name TOP_LEVEL_ENTITY iqmod
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "12.1 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:38:03  MARCH 16, 2013"
+set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE iqmod.v
+#set_global_assignment -name VERILOG_FILE ../rtl/gmii.v
+#set_global_assignment -name VERILOG_FILE ../rtl/rom.v
+#set_global_assignment -name VERILOG_FILE ../rtl/txuart.v
+#set_global_assignment -name VERILOG_FILE ../cores/virtual_wire.v
+#set_global_assignment -name VERILOG_FILE ../rtl/crc.v
+#set_global_assignment -name VERILOG_FILE ram.v
+#set_global_assignment -name QIP_FILE ram.qip
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+# 50mhz osc
+#set_location_assignment PIN_T2-to clock
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clockset_location_assignment PIN_A3 -to led_0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_0
+set_location_assignment PIN_E4 -to led_0
+
+set_location_assignment PIN_AB17 -to e_mdc
+set_location_assignment PIN_AA17 -to e_mdio
+#set_location_assignment PIN_N22 -to e_reset
+set_location_assignment PIN_M22 -to e_rxc
+set_location_assignment PIN_P22 -to e_rxd[7]
+set_location_assignment PIN_P21 -to e_rxd[6]
+set_location_assignment PIN_N22 -to e_rxd[5]
+set_location_assignment PIN_N21 -to e_rxd[4]
+set_location_assignment PIN_M21 -to e_rxd[3]
+set_location_assignment PIN_L22 -to e_rxd[2]
+set_location_assignment PIN_L21 -to e_rxd[1]
+set_location_assignment PIN_B16 -to e_rxd[0] # D5 led; schematic says K22 but synth says its used for bistream
+set_location_assignment PIN_K21 -to e_rxdv
+set_location_assignment PIN_R21 -to e_rxer
+set_location_assignment PIN_AB20 -to e_txc
+set_location_assignment PIN_AB18 -to e_txd[7]
+set_location_assignment PIN_AA19 -to e_txd[6]
+set_location_assignment PIN_AB19 -to e_txd[5]
+set_location_assignment PIN_AA20 -to e_txd[4]
+set_location_assignment PIN_Y22 -to e_txd[3]
+set_location_assignment PIN_Y21 -to e_txd[2]
+set_location_assignment PIN_W22 -to e_txd[1]
+set_location_assignment PIN_V22 -to e_txd[0]
+set_location_assignment PIN_V21 -to e_txen
+set_location_assignment PIN_AA18 -to e_txer
+
+set_location_assignment PIN_T2 -to fpga_gclk
+set_location_assignment PIN_J4 -to reset_n
+# KEY0 W13; KEY1 Y13
+# DB LEDS 1-5: A3 B3 A7 B7 A6
+# DB SWS 1-5: AA13 A10 B10 A9 B9
+# BOTH ACTIVE LOW
+#
+# 7 SEG: A B C D E F G: C4 B2 A3 C3 A5 B4 B1; DP A4
+# DIG 1 2 3: B5 B3 B6
+# PMOD J11: 1 2 3 4 : R1 P1 N1 M1; 7 8 9 10: R2 P2 N2 M2
+# GND 5,11; 3.3 6,12
+# PMOD J10: 1 2 3 4: H1 F1 E1 C1; 7 8 9 10: H2 F2 D2 C2; SAME PWR/GND
+# BIGGER PMOD JP1: 1 3 5 7: 3.3, A20 W PULLUP, A19 A18; 9 11 13 15 17: A17 A16 A15 A14 A13
+#  2 4 6 8: GND, B20 W PULLUP, B19 B18; 10 12 14 16 18: B17 B16 B15 B14 B13
+#
+# FROM QMTECH_DB_EP4CE15F23_V02 PDF
+
+set_location_assignment PIN_A3 -to dbleds[0]
+set_location_assignment PIN_B3 -to dbleds[1]
+set_location_assignment PIN_A7 -to dbleds[2]
+set_location_assignment PIN_B7 -to dbleds[3]
+set_location_assignment PIN_A6 -to dbleds[4]
+
+
+set_location_assignment PIN_B19 -to p_e_reset
+set_location_assignment PIN_B18 -to p_e_txen
+set_location_assignment PIN_B17 -to p_e_gtxc
+
+set_location_assignment PIN_A19  -to p_e_txd[7]
+set_location_assignment PIN_A18 -to p_e_txd[6]
+set_location_assignment PIN_A17 -to p_e_txd[5]
+set_location_assignment PIN_A16 -to p_e_txd[4]
+set_location_assignment PIN_A15 -to p_e_txd[3]
+set_location_assignment PIN_A14 -to p_e_txd[2]
+set_location_assignment PIN_A13 -to p_e_txd[1]
+set_location_assignment PIN_B13 -to p_e_txd[0]
+
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_gtxc
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_mdc
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_mdio
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_reset
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxc
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxd[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxdv
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_rxer
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txc
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txd[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txen
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to e_txer
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to fpga_gclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset_n
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
