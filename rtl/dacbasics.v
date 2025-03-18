@@ -19,10 +19,14 @@ module dacbasics(
         clkena<=1'b1;
     end
 
-    assign clka=clock & clkena;
-    assign clkb=clock & clkena;
-    assign wrta=clock & clkena;
-    assign wrtb=clock & clkena;
+    //assign clka=clock & clkena;
+    //assign clkb=clock & clkena;
+    //assign wrta=clock & clkena;
+    //assign wrtb=clock & clkena;
+    assign clka=clock;
+    assign clkb=clock;
+    assign wrta=clock;
+    assign wrtb=clock;
 
     // dac latches on rising edge WRTn and CLKn
     always @(negedge clock) begin
@@ -32,8 +36,8 @@ module dacbasics(
 
             clkena<=1'b0;
         end else begin
-            dataa <= dataa+14'd1;
-            datab <= datab+14'd1;
+            dataa <= dataa+14'd1280;
+            datab <= datab+14'd1280;
 
             clkena<=1'b1;
         end
