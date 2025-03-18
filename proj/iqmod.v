@@ -13,10 +13,10 @@ module iqmod(
         output wire [7:0] dig_seg,
         output wire dac_clka,
         output wire dac_clkb,
-        output wire dac_wrta,
-        output wire dac_wrtb,
         output reg [13:0] dac_a,
-        output reg [13:0] dac_b
+        output reg [13:0] dac_b,
+        output wire dac_led0a,
+        output wire dac_led0b
     );
 
 reg por_=0;
@@ -25,6 +25,8 @@ reg [31:0] porctr=`PORINIT;
 reg blinken=0;
 reg [31:0] blinkenctr=`BLINKEN;
 
+assign dac_led0a=blinken;
+assign dac_led0b=~blinken;
 
 //assign led_0=0;
 //assign led_0=reset_n;
@@ -42,7 +44,7 @@ wire mainclock;
 reg [7:0] clockdiv=8'h01;
 
 assign mainclock=fpga_gclk;
-
+//assign mainclock=e_rxc; // doesnt seem to run
 
 /*dacbasics dacctl(
     .clock(e_rxc),
@@ -56,27 +58,28 @@ assign mainclock=fpga_gclk;
 */
 
 initial begin
-	por_=0;
-	porctr=`PORINIT;
-    dac_a=14'd0;
-    dac_b=14'd2048;
+	por_<=0;
+	porctr<=`PORINIT;
+    dac_a<=14'd0;
+    dac_b<=14'd2048;
 
 	blinken=0;
 	blinkenctr=`BLINKEN;
 end
 
-assign dac_wrta=mainclock;
-assign dac_wrtb=mainclock;
 assign dac_clka=mainclock;
 assign dac_clkb=mainclock;
 
 reg [15:0] sqctr=16'd0;
 
-always @(negedge mainclock) begin
+reg dirup_a=1'b1;
+reg dirup_b=1'b1;
+
+always @(posedge mainclock) begin
 	clockdiv<=clockdiv+8'h01;
 
-	if (porctr) porctr=porctr-32'd1;
-	else por_=1;
+	if (porctr) porctr<=porctr-32'd1;
+	else por_<=1;
 
 	if (blinkenctr) blinkenctr<=blinkenctr-32'd1;
 	else begin
@@ -92,17 +95,37 @@ always @(negedge mainclock) begin
     //dac_a<=dac_a+14'd7;
     //dac_b<=dac_b+14'd7;
 
-    if (por_) begin
-        if (sqctr[7]==1'b0) begin
-            dac_a=~dac_a;
-            dac_b=~dac_b;
+    if (por_) begin // not in reset state
+        //if (sqctr[7]==1'b0) begin
+        //    //dac_a<=~dac_a;
+        //    dac_b<=~dac_b;
+        //end
+
+        sqctr<=sqctr+16'd1;
+    
+        if (1==dirup_a) begin
+            if (dac_a>({14{1'b1}}-14'd33)) begin
+                dirup_a<=0;
+            end else dac_a<=dac_a+14'd15;
+        end else begin
+            if (dac_a<14'd33) begin
+                dirup_a<=1;
+            end else dac_a<=dac_a-14'd15;
         end
 
-        sqctr=sqctr+16'd1;
+        if (1==dirup_b) begin
+            if (dac_b>({14{1'b1}}-14'd33)) begin
+                dirup_b<=0;
+            end else dac_b<=dac_b+14'd15;
+        end else begin
+            if (dac_b<14'd33) begin
+                dirup_b<=1;
+            end else dac_b<=dac_b-14'd15;
+        end
     end else begin
-        dac_a=14'b11111111111111;
-        dac_b=14'b00000000000000;
-        sqctr=0;
+        dac_a<=14'b00101111111111;
+        dac_b<=14'b00000000000000;
+        sqctr<=0;
     end
 
 end
