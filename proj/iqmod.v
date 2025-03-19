@@ -14,7 +14,7 @@ module iqmod(
         output wire dac_clka,
         output wire dac_clkb,
         output reg [13:0] dac_a,
-        output reg [13:0] dac_b,
+        output wire [13:0] dac_b,
         output wire dac_led0a,
         output wire dac_led0b
     );
@@ -38,6 +38,18 @@ assign pmod2char=8'h7f;
 
 assign dig_ena=3'd5; // lol
 assign dig_seg=8'h00;
+
+
+wire [13:0] sin_in;
+wire [13:0] sin_out;
+reg [13:0] sinectr=14'd0;
+assign sin_in=sinectr;
+assign dac_b=sin_out;
+
+sin_lut #( .IN_WIDTH(14), .OUT_WIDTH(14) )
+    sin0(
+        .in_val(sin_in),
+        .out_val(sin_out));
 
 
 wire mainclock;
@@ -101,8 +113,9 @@ always @(posedge mainclock) begin
         //    dac_b<=~dac_b;
         //end
 
-        sqctr<=sqctr+16'd1;
-    
+        //sqctr<=sqctr+16'd1;
+        sinectr<=sinectr+14'd1;
+
         if (1==dirup_a) begin
             if (dac_a>({14{1'b1}}-14'd33)) begin
                 dirup_a<=0;
@@ -113,7 +126,7 @@ always @(posedge mainclock) begin
             end else dac_a<=dac_a-14'd15;
         end
 
-        if (1==dirup_b) begin
+        /*if (1==dirup_b) begin
             if (dac_b>({14{1'b1}}-14'd33)) begin
                 dirup_b<=0;
             end else dac_b<=dac_b+14'd15;
@@ -121,11 +134,12 @@ always @(posedge mainclock) begin
             if (dac_b<14'd33) begin
                 dirup_b<=1;
             end else dac_b<=dac_b-14'd15;
-        end
+        end*/
     end else begin
         dac_a<=14'b00101111111111;
         dac_b<=14'b00000000000000;
         sqctr<=0;
+        sinectr<=14'd0;
     end
 
 end
