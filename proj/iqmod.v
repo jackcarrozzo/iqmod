@@ -73,7 +73,7 @@ initial begin
 	por_<=0;
 	porctr<=`PORINIT;
     dac_a<=14'd0;
-    dac_b<=14'd2048;
+    //dac_b<=14'd2048;
 
 	blinken=0;
 	blinkenctr=`BLINKEN;
@@ -114,7 +114,12 @@ always @(posedge mainclock) begin
         //end
 
         //sqctr<=sqctr+16'd1;
-        sinectr<=sinectr+14'd1;
+        
+        //if (sinectr>14'd4096) sinectr<=14'd0;
+        //else sinectr<=sinectr+14'd1;
+
+        if (sinectr>14'd10000) sinectr<=14'd6000;
+        else sinectr<=sinectr+14'd1;
 
         if (1==dirup_a) begin
             if (dac_a>({14{1'b1}}-14'd33)) begin
@@ -137,7 +142,7 @@ always @(posedge mainclock) begin
         end*/
     end else begin
         dac_a<=14'b00101111111111;
-        dac_b<=14'b00000000000000;
+        //dac_b<=14'b00000000000000;
         sqctr<=0;
         sinectr<=14'd0;
     end

@@ -26,8 +26,8 @@ module sin_lut #(
         case (quadrant)
             2'b00: sin_value = lut[raw_index];                 // 1st quadrant
             2'b01: sin_value = lut[LUT_SIZE - 1 - raw_index];  // 2nd quadrant (mirror)
-            2'b10: sin_value = (2**OUT_WIDTH - 1) - lut[raw_index]; // 3rd quadrant (invert)
-            2'b11: sin_value = (2**OUT_WIDTH - 1) - lut[LUT_SIZE - 1 - raw_index]; // 4th quadrant (mirror & invert)
+            2'b10: sin_value = (2**(OUT_WIDTH-1) - 1) - lut[raw_index]; // 3rd quadrant (invert)
+            2'b11: sin_value = (2**(OUT_WIDTH-1) - 1) - lut[LUT_SIZE - 1 - raw_index]; // 4th quadrant (mirror & invert)
         endcase
     end
 
