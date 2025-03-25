@@ -1,6 +1,7 @@
 incremental_db
 output_files
 db
+obj_dir
 tbin.vvp
 dump.vcd
 waveform.vcd
