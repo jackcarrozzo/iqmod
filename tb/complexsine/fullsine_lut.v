@@ -1,1 +1,1 @@
-../sine2/fullsine_lut.v
+../../rtl/fullsine_lut.v

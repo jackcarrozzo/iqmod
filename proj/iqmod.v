@@ -40,6 +40,7 @@ assign dig_ena=3'd5; // lol
 assign dig_seg=8'h00;
 
 
+/*
 wire [13:0] sin_in;
 wire [13:0] sin_out;
 reg [13:0] sinectr=14'd0;
@@ -49,8 +50,19 @@ assign dac_b=sin_out;
 sin_lut #( .IN_WIDTH(14), .OUT_WIDTH(14) )
     sin0(
         .in_val(sin_in),
-        .out_val(sin_out));
+        .out_val(sin_out));*/
 
+wire [13:0] i_unsigned_out;
+wire [13:0] q_unsigned_out;
+
+complexsine csin0(
+    .clk(mainclock),
+    .i_mag(14'sd8000),
+    .q_mag(14'sd8000),
+    .i_unsigned_out(i_unsigned_out),
+    .q_unsigned_out(q_unsigned_out));
+
+assign dac_b=q_unsigned_out;
 
 wire mainclock;
 reg [7:0] clockdiv=8'h01;
@@ -82,10 +94,10 @@ end
 assign dac_clka=mainclock;
 assign dac_clkb=mainclock;
 
-reg [15:0] sqctr=16'd0;
+//reg [15:0] sqctr=16'd0;
 
 reg dirup_a=1'b1;
-reg dirup_b=1'b1;
+//reg dirup_b=1'b1;
 
 always @(posedge mainclock) begin
 	clockdiv<=clockdiv+8'h01;
@@ -108,18 +120,8 @@ always @(posedge mainclock) begin
     //dac_b<=dac_b+14'd7;
 
     if (por_) begin // not in reset state
-        //if (sqctr[7]==1'b0) begin
-        //    //dac_a<=~dac_a;
-        //    dac_b<=~dac_b;
-        //end
-
-        //sqctr<=sqctr+16'd1;
-        
-        //if (sinectr>14'd4096) sinectr<=14'd0;
+        //if (sinectr>14'd10000) sinectr<=14'd6000;
         //else sinectr<=sinectr+14'd1;
-
-        if (sinectr>14'd10000) sinectr<=14'd6000;
-        else sinectr<=sinectr+14'd1;
 
         if (1==dirup_a) begin
             if (dac_a>({14{1'b1}}-14'd33)) begin
@@ -143,8 +145,8 @@ always @(posedge mainclock) begin
     end else begin
         dac_a<=14'b00101111111111;
         //dac_b<=14'b00000000000000;
-        sqctr<=0;
-        sinectr<=14'd0;
+        //sqctr<=0;
+        //sinectr<=14'd0;
     end
 
 end
