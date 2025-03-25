@@ -1,18 +1,20 @@
 
 VERILATOR = verilator
 CPP       = g++
-CFLAGS    = -O2 -Wall
+CFLAGS    =  -Wall
+# -O2
 
 .PHONY: all clean
 
 all: sim
 
-sim: obj_dir/Vsinmult
-	./obj_dir/Vsinmult
+sim: obj_dir/Vcomplexsine
+	./obj_dir/Vcomplexsine
 
-obj_dir/Vsinmult: sinmult.v test_sinmult.cpp
-	$(VERILATOR) --cc sinmult.v --trace --exe test_sinmult.cpp #--Wno-WIDTHTRUNC
-	make -C obj_dir -f Vsinmult.mk Vsinmult
+#--Wno-WIDTHTRUNC
+obj_dir/Vcomplexsine: complexsine.v test_complexsine.cpp
+	$(VERILATOR) --cc complexsine.v --trace --timing --exe test_complexsine.cpp
+	make -C obj_dir -f Vcomplexsine.mk Vcomplexsine
 
 show:
 	#gtkwave dump.vcd 2>&1 >/dev/null &
@@ -20,5 +22,5 @@ show:
 	~/build/oss-cad-suite-build/oss-cad-suite/bin/gtkwave waveform.vcd 2>&1 >/dev/null &
 
 clean:
-	rm -rf obj_dir waveform.vcd
+	rm -rf obj_dir
 

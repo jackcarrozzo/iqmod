@@ -3,3 +3,4 @@ output_files
 db
 tbin.vvp
 dump.vcd
+waveform.vcd

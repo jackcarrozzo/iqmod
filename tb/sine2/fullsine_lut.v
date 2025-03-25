@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module fullsine_lut #(
     parameter IN_WIDTH = 12,
     parameter OUT_WIDTH = 14,

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module sinmult (
     input wire [11:0] theta,
     input wire signed [13:0] coef,

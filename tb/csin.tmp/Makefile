@@ -7,12 +7,12 @@ CFLAGS    = -O2 -Wall
 
 all: sim
 
-sim: obj_dir/Vsinmult
-	./obj_dir/Vsinmult
+sim: obj_dir/Vcsin
+	./obj_dir/Vcsin
 
-obj_dir/Vsinmult: sinmult.v test_sinmult.cpp
-	$(VERILATOR) --cc sinmult.v --trace --exe test_sinmult.cpp #--Wno-WIDTHTRUNC
-	make -C obj_dir -f Vsinmult.mk Vsinmult
+obj_dir/Vcsin: csin.v test_csin.cpp
+	$(VERILATOR) --cc csin.v --trace --exe test_csin.cpp #--Wno-WIDTHTRUNC
+	make -C obj_dir -f Vcsin.mk Vcsin
 
 show:
 	#gtkwave dump.vcd 2>&1 >/dev/null &
