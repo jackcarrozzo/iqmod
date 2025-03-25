@@ -1,0 +1,1 @@
+../sine2/fullsine_lut.v
