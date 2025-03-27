@@ -6,7 +6,7 @@ import math
 LUT_SIZE = 4096 #128  # Number of LUT entries (1/4 cycle)
 OUT_WIDTH = 14  # Bit width of sine values
 MAX_VALUE = (2 ** OUT_WIDTH) - 1
-MAG_VAL = (2 ** (OUT_WIDTH-1))-1
+MAG_VAL = (2 ** (OUT_WIDTH-1))-2
 OFFSET = 0
 
 # '%#2x' % (-34 & 0xffff)

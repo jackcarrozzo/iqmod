@@ -6,7 +6,7 @@ module complexsine (
     output wire [13:0] i_unsigned_out,
     output wire [13:0] q_unsigned_out);
 
-    wire [11:0] omega=12'd100;
+    wire [11:0] omega=12'd40; // 600 shows it
 
     // sines are 0 to 2*Pi mapped over 0 - 2**12
     // omega- amount we move through the wave per sample over 0-2**12
@@ -20,6 +20,9 @@ module complexsine (
     wire [11:0] q_theta;
     // q is 1/4 behind if pos_freq, else 1/4 in front
     assign q_theta=(1==pos_freq)?i_theta-12'd1024:i_theta+12'd1024;
+
+    //wire [11:0] theta_max;
+    //assign theta_max
 
     always @(posedge clk) begin
         i_theta<=i_theta+omega;
@@ -56,13 +59,14 @@ module complexsine (
     // assign i_signed_out=i_accum_top;
     //assign i_unsigned_out=i_accum_top+14'sd8192;
     wire [13:0] i_unsigned_out_halfsize;
-    assign i_unsigned_out_halfsize=(i_accum_top>14'd4000)?i_accum_top-14'd4000:i_accum_top+14'd4096;
+    assign i_unsigned_out_halfsize=(i_accum_top>14'd3400)?i_accum_top-14'd3950:i_accum_top+14'd4096;
     assign i_unsigned_out={i_unsigned_out_halfsize[12:0],1'b0};
+    //assign i_unsigned_out=i_unsigned_out_halfsize;
 
     // assign q_signed_out=q_accum_top;
     //assign q_unsigned_out=(q_accum_top>14'd4000)?q_accum_top-14'd4000:q_accum_top+14'd8192;
     wire [13:0] q_unsigned_out_halfsize;
-    assign q_unsigned_out_halfsize=(q_accum_top>14'd4000)?q_accum_top-14'd4000:q_accum_top+14'd4096;
+    assign q_unsigned_out_halfsize=(q_accum_top>14'd3400)?q_accum_top-14'd3950:q_accum_top+14'd4096;
     assign q_unsigned_out={q_unsigned_out_halfsize[12:0],1'b0};
 
 endmodule

@@ -17,8 +17,9 @@ int main(int argc, char** argv) {
 
 	uint32_t maxiter=1000;
 
-	int i_mag=8000;
-	int q_mag=8000;
+	int i_mag=8020;
+	i_mag=7900;
+	int q_mag=7900;
 	uint8_t clk=0;
 	int i;
 
